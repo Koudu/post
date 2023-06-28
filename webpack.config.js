@@ -2,21 +2,32 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/main.js",
+  entry: {
+    main: "./src/main.js",
+    user: "./src/user.js",
+  },
   resolve: {
     extensions: [".js", ".ts"],
   },
   output: {
-    filename: "script.js",
-    path: path.resolve(__dirname, "dist"),
-    environment: {
-      arrowFunction: false,
-    },
+    path: path.resolve(__dirname, "build", "target"),
+    publicPath: "/",
+    filename: "[name].bundle.js",
+    chunkFilename: "[id].bundle_[chunkhash].js",
+    sourceMapFilename: "[file].map",
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: "index.html",
       template: "public/index.html",
       inject: "body",
+      chunks: ["main"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "user.html",
+      template: "public/user.html",
+      inject: "body",
+      chunks: ["user"],
     }),
   ],
   module: {
