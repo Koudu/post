@@ -1,6 +1,25 @@
+import { getComments } from "../api/comment";
+import { renderComment } from "./comments/comments";
+
 export function Post(post, user = "") {
-  const clickAction = (e) => {
-    console.log("click", post.id);
+  let postComments;
+  let comments = [];
+  const clickAction = async () => {
+    if (!postComments) {
+      return;
+    }
+    if (postComments.classList.contains("_active")) {
+      postComments.classList.remove("_active");
+      return;
+    }
+    postComments.classList.add("_active");
+    postComments.innerHTML = `<div class="wrap"><h1>Загрузка...</h1></div>`;
+    comments = await getComments(post.id);
+    if (comments.length === 0) {
+      postComments.innerHTML = `<div class="wrap"><h1>Нет комментариев</h1></div>`;
+      return;
+    }
+    postComments.innerHTML = comments.map((c) => renderComment(c)).join("");
   };
   return {
     render: () => {
@@ -20,9 +39,7 @@ export function Post(post, user = "") {
     },
     onRender: () => {
       const btn = document.getElementById(`comments-btn-${post.id}`);
-      const postComments = document.getElementById(
-        `comments-section-${post.id}`
-      );
+      postComments = document.getElementById(`comments-section-${post.id}`);
       btn.addEventListener("click", clickAction);
     },
     onDelete: () => {

@@ -5,13 +5,18 @@
   </head>
   <body>
     <div class="background">
-      <header class="up"></header>
-      <div class="navi-btn"></div>
-        <div class="navi-panel _inactive" id="NaviPanel">
-
+      <header class="up">
+        <div class="navi-btn" onclick="this.classList.toggle('open')">
+          <div class="button _inactive" name="button-name"></div>
+          <div class="button _inactive" name="button-name-post"></div>
+          <div class="button _inactive" name="button-post"></div>
         </div>
+      </header>
       <main class="content" id="root">
       </main>
+      <div class="navi-panel _inactive" id="NaviPanel">
+
+      </div>
   </div>
   </body>
 </html>

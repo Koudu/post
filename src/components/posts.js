@@ -61,6 +61,16 @@ export function Posts(rootEl, userId = undefined) {
           </div>
         `;
         }
+        if (name === "button-name" && button) {
+          if (button?.classList.contains (inactive)) {
+            document.querySelectorAll(".dark-them").forEach((el) => {
+              el.classList.remove("dark-them");
+              el.classList.add("light-them");
+            });
+          return;
+          }
+            
+        }
       });
     },
   };

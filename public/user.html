@@ -5,17 +5,30 @@
   </head>
   <body>
     <div class="background">
-      <header class="up"></header>
-       <div class="navi-btn"></div>
-        <div class="navi-panel">
-
+      <header class="up">
+        <div class="navi-btn" onclick="this.classList.toggle('open')">
+          <div class="button _inactive" name="button-name"></div>
+          <div class="button _inactive" name="button-name-post"></div>
+          <div class="button _inactive" name="button-post"></div>
         </div>
+      </header>
+
       <main class="content">
+        
+        <form>
+          <input type="text" />
+          <textarea></textarea>
+          <input type="submit" />
+        </form>
         <div id="root">User page</div>
         <div class="name"></div>
         <div id="loader"></div>
         <div id="user-posts"></div>
       </main>
+      <div class="navi-panel _inactive">
+
+      </div>
+
   </div>
   </body>
 </html>
