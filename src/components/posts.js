@@ -61,16 +61,34 @@ export function Posts(rootEl, userId = undefined) {
           </div>
         `;
         }
-        if (name === "button-name" && button) {
-          if (button?.classList.contains (inactive)) {
-            document.querySelectorAll(".dark-them").forEach((el) => {
-              el.classList.remove("dark-them");
-              el.classList.add("light-them");
-            });
-          return;
-          }
-            
-        }
+        // const name = e.target.getAttribute("name");
+        // if (name === "button-name" && btn-username) {
+        //   if (btn-username?.classList.contains(inactive)) {
+        //     document.querySelectorAll(".btn-username").forEach((el) => {
+        //       el.classList.remove("btn-username");
+        //       el.classList.add("btn-username");
+        //       return;
+        //     });
+        //   }
+        // }
+        // if (name === "button-name-post" && btn-name-post) {
+        //   if (btn-name-post?.classList.contains(inactive)) {
+        //     document.querySelectorAll(".btn-name-post").forEach((el) => {
+        //       el.classList.remove("btn-name-post");
+        //       el.classList.add("btn-name-post");
+        //       return;
+        //     });
+        //   }
+        // }
+        // if (name === "button-post" && btn-post) {
+        //   if (btn-post?.classList.contains(inactive)) {
+        //     document.querySelectorAll(".btn-post").forEach((el) => {
+        //       el.classList.remove("btn-post");
+        //       el.classList.add("btn-post");
+        //       return;
+        //     });
+        //   }
+        // }
       });
     },
   };
